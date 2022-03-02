@@ -1,9 +1,10 @@
-from faker import Faker
+#from faker import Faker
 import Create
 import Read
 import Delete
+import Update
 if __name__ == '__main__':
-    fake = Faker()
+    #fake = Faker()
 
     #Create.create_cliente('74.708.966/0001-14',fake.name())
     #Create.create_tipo_produto('Panela')
@@ -11,7 +12,7 @@ if __name__ == '__main__':
     #teste = Read.read_produto()
     #print(type(teste[1]))
     #print(teste[1])
-    Delete.delete_tipo_produto()
+    Update.update_produto(2,50)
 
 
     

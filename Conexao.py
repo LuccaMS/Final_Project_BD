@@ -5,7 +5,7 @@ from mysql.connector import errorcode
 try: cnx = mysql.connector.connect(
     host="localhost",
     user="root",
-    passwd="admin",
+    passwd="root",
     database="trabalho_final") 
     
 except mysql.connector.Error as err:
