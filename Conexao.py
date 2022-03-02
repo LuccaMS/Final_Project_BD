@@ -7,6 +7,7 @@ try: cnx = mysql.connector.connect(
     user="root",
     passwd="admin",
     database="trabalho_final") 
+    
 except mysql.connector.Error as err:
     if err.errno == errorcode.ER_ACCESS_DENIED_ERROR:
         print("Usuário ou senha inválidos")

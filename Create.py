@@ -1,8 +1,11 @@
 
 import Conexao
 
-def create_produto(dt_pgt_transacao,desconto,juros,valor,qtd,data):
-    return "nothing"
+def create_produto(desricao,valor,fk_Tipo_Produto_id_tipo_produto):
+    create_produto_query = f"INSERT INTO produto (descricao,valor,fk_Tipo_Produto_id_tipo_produto) VALUES ('{desricao}','{valor}','{fk_Tipo_Produto_id_tipo_produto}')"
+    Conexao.cr.execute(create_produto_query)
+    Conexao.cnx.commit()
+    return "Produto criado com sucesso"
 
 def create_cliente(cnpj,nome):
     create_cliente_query =  f"INSERT INTO cliente (cnpj_cliente,nome_cliente) VALUES ('{cnpj}','{nome}')"
@@ -10,7 +13,6 @@ def create_cliente(cnpj,nome):
     Conexao.cnx.commit()
     return "Cliente criado com sucesso"
     
-
 def create_nota_fiscal(desconto,juros,valor,qtd,fk_Cliente_id_cliente,fk_Obra_Prima_id_obra_prima):
     return "nothing"
 
@@ -21,7 +23,10 @@ def create_fornecedor(cnpj_fornecedor,nome_fornecedor,endereco_fornecedor):
     return "nothing"
 
 def create_tipo_produto(descricao):
-    return "nothing"
+    create_tipo_produto_query = f"INSERT INTO tipo_produto (descricao) VALUES ('{descricao}')"
+    Conexao.cr.execute(create_tipo_produto_query)
+    Conexao.cnx.commit()
+    return "Tipo de produto criado com sucesso"
 
 def create_tipo_sensor(descricao):
     return "nothing"
