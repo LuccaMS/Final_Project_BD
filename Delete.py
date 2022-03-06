@@ -2,7 +2,7 @@ import Conexao
 import mysql.connector
 
 def delete_tipo_produto(descricao):
-    delete_query = f"DELETE FROM tipo_produto WHERE descricao = '{descricao}'"
+    delete_query = f"DELETE FROM tipo_produto WHERE descricao_tipo_produto = '{descricao}'"
     #Conexao.cr.commit()
     try: 
         Conexao.cr.execute(delete_query)
@@ -13,7 +13,7 @@ def delete_tipo_produto(descricao):
         Conexao.cnx.rollback()
 
 def delete_produto(descricao):
-    delete_query = f"DELETE FROM produto WHERE descricao = '{descricao}'"
+    delete_query = f"DELETE FROM produto WHERE descricao_produto = '{descricao}'"
     #Conexao.cr.commit()
     try: 
         Conexao.cr.execute(delete_query)
@@ -57,7 +57,7 @@ def delete_funcionario(nome):
         Conexao.cnx.rollback()
 
 def delete_maquina(descricao):
-    delete_query = f"DELETE FROM maquina WHERE descricao = '{descricao}'"
+    delete_query = f"DELETE FROM maquina WHERE descricao_maquina = '{descricao}'"
     #Conexao.cr.commit()
     try: 
         Conexao.cr.execute(delete_query)
@@ -68,7 +68,7 @@ def delete_maquina(descricao):
         Conexao.cnx.rollback()
 
 def delete_obra_prima(descricao):
-    delete_query = f"DELETE FROM obra_prima WHERE descricao = '{descricao}'"
+    delete_query = f"DELETE FROM obra_prima WHERE descricao_obra_prima = '{descricao}'"
     #Conexao.cr.commit()
     try: 
         Conexao.cr.execute(delete_query)
@@ -79,7 +79,7 @@ def delete_obra_prima(descricao):
         Conexao.cnx.rollback()
 
 def delete_sensor(descricao):
-    delete_query = f"DELETE FROM sensor WHERE descricao = '{descricao}'"
+    delete_query = f"DELETE FROM sensor WHERE descricao_sensor = '{descricao}'"
     #Conexao.cr.commit()
     try: 
         Conexao.cr.execute(delete_query)
@@ -90,7 +90,7 @@ def delete_sensor(descricao):
         Conexao.cnx.rollback()
 
 def delete_tipo_sensor(descricao):
-    delete_query = f"DELETE FROM tipo_sensor WHERE descricao = '{descricao}'"
+    delete_query = f"DELETE FROM tipo_sensor WHERE descricao_tipo_sensor = '{descricao}'"
     #Conexao.cr.commit()
     try: 
         Conexao.cr.execute(delete_query)
