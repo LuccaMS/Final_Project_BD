@@ -6,31 +6,39 @@ import Read
 import Delete
 import Read_Where
 import Consultas_pre_feitas
-if __name__ == '__main__':
+
+def insercoes_teste():
     fake = Faker()
 
-    #print(Read.read_cliente())
-    #descricao_tipo_produto = fake.text(max_nb_chars=20)
-    #descricao_da_maquina = fake.text(max_nb_chars=20)
-   # descricao_do_produto = fake.text(max_nb_chars=20)
-    #nome_funcionario = fake.name()
+    print(Read.read_cliente())
+    descricao_tipo_produto = fake.text(max_nb_chars=20)
+    descricao_da_maquina = fake.text(max_nb_chars=20)
+    descricao_do_produto = fake.text(max_nb_chars=20)
+    nome_funcionario = fake.name()
 
-    #Create.create_funcionario(nome_funcionario,"430.786.350-07")
-    #Create.create_cliente("97.246.631/0001-27",fake.name())
-    #Create.create_tipo_produto(descricao_tipo_produto)
-    #id_tipo_produto_recem_criado = Read_Where.read_tipo_produto_descricao(descricao_tipo_produto)[0][0]
-   # Create.create_produto(descricao_do_produto,150,id_tipo_produto_recem_criado)
-    #id_produto_recem_criado = Read_Where.read_produto_descricao(descricao_do_produto)[0][0]
-    #Create.create_maquina(descricao_da_maquina,id_produto_recem_criado)
-   # Create.create_escala(datetime.now(),Read_Where.read_maquina_descricao(descricao_da_maquina)[0][0],Read_Where.read_funcionario_nome(nome_funcionario)[0][0])
+    Create.create_funcionario(nome_funcionario,"430.786.350-07")
+    #Criando um funcionário 
+    Create.create_cliente("97.246.631/0001-27",fake.name())
+    #Criando um cliente
+    Create.create_tipo_produto(descricao_tipo_produto)
+    #Criando um tipo de produto
+    id_tipo_produto_recem_criado = Read_Where.read_tipo_produto_descricao(descricao_tipo_produto)[0][0]
+    #Pegando o id do tipo de produto recém criado para então poder criar um produto, já que é necessário uma fk de tipo_produto
+    Create.create_produto(descricao_do_produto,150,id_tipo_produto_recem_criado)
+    #Criando um produto
+    id_produto_recem_criado = Read_Where.read_produto_descricao(descricao_do_produto)[0][0]
+    #Pegando o produto recem criado para então poder criar uma maquina, já que é necessário uma fk de produto
+    Create.create_maquina(descricao_da_maquina,id_produto_recem_criado)
+    #Criando uma maquina
+    Create.create_escala(datetime.now(),Read_Where.read_maquina_descricao(descricao_da_maquina)[0][0],Read_Where.read_funcionario_nome(nome_funcionario)[0][0])
+    #Criando a escala
 
-    #print(Create.create_tipo_produto("Um tipo de produto muito legal"))
-    #Primeira Consulta
 
-   # Create.obra_prima("uma obra prima muito legal", 550)
-    Create.create_sensor("sensor bom","Kg",1,1,15)
+if __name__ == '__main__':
 
-'''
+    #insercoes_teste()
+
+    '''
     print("\nConsulta 1\n")
     clientes = Consultas_pre_feitas.consulta1()
     print("Nome Cliente\t\ttotal gasto")
@@ -53,6 +61,6 @@ if __name__ == '__main__':
     print("-----------------------------------------------------------------------------")
     for sensor in sensores:
         print("%s\t\t\t%d\t\t\t%s"%(sensor[1],sensor[5],sensor[6]))
+    '''
 
-'''
     
