@@ -5,7 +5,7 @@ import Read
 import Delete
 import Read_Where
 if __name__ == '__main__':
-    #fake = Faker()
+    fake = Faker()
 
     #print(Read.read_cliente())
     descricao_tipo_produto = fake.text(max_nb_chars=20)
@@ -22,8 +22,8 @@ if __name__ == '__main__':
     Create.create_maquina(descricao_da_maquina,id_produto_recem_criado)
     Create.create_escala(datetime.now(),Read_Where.read_maquina_descricao(descricao_da_maquina)[0][0],Read_Where.read_funcionario_nome(nome_funcionario)[0][0])
 
-    #print(Create.create_tipo_produto("Um tipo de produto muito legal"))
-
+    
+    
 
     
 

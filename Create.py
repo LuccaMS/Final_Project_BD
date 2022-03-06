@@ -57,9 +57,8 @@ def create_fornecedor(cnpj_fornecedor,nome_fornecedor,endereco_fornecedor):
 def create_tipo_produto(descricao):
     create_tipo_produto_query = f"INSERT INTO tipo_produto (descricao) VALUES ('{descricao}')"
     try:
-        testee =Conexao.cr.execute(create_tipo_produto_query)
-        teste = Conexao.cnx.commit()
-        print(testee)
+        Conexao.cr.execute(create_tipo_produto_query)
+        Conexao.cnx.commit()
         return "Tipo produto criado com sucesso"
     except mysql.connector.Error as err:
         print(err)
