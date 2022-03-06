@@ -26,11 +26,27 @@ if __name__ == '__main__':
 
     #print(Create.create_tipo_produto("Um tipo de produto muito legal"))
     #Primeira Consulta
+
+    print("\nConsulta 1\n")
     clientes = Consultas_pre_feitas.consulta1()
     print("Nome Cliente\t\ttotal gasto")
     print("------------------------------------------")
     for cliente in clientes:
         print("%s:\t\t\t%.2f"%(cliente[1],cliente[2]))
 
+    print("\nConsulta 2\n")
+    #Consulta 2
+    fornecedores = Consultas_pre_feitas.consulta2()
+    print("Nome fornecedores\t\tdescricao da obra prima\t\tmedia dos valores")
+    print("----------------------------------------------------------------------------------")
+    for fornecedor in fornecedores:
+        print("%s\t\t\t%s\t\t\t%.2f"%(fornecedor[1],fornecedor[3],fornecedor[4]))
 
+    print("\nConsulta 3\n")
+    #Consulta 3
+    sensores = Consultas_pre_feitas.consulta3()
+    print("Data\t\t\t\tmedida minima\t\t\tunidade de medida")
+    print("-----------------------------------------------------------------------------")
+    for sensor in sensores:
+        print("%s\t\t\t%d\t\t\t%s"%(sensor[1],sensor[5],sensor[6]))
 
