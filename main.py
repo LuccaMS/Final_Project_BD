@@ -27,6 +27,10 @@ if __name__ == '__main__':
     #print(Create.create_tipo_produto("Um tipo de produto muito legal"))
     #Primeira Consulta
 
+   # Create.obra_prima("uma obra prima muito legal", 550)
+    Create.create_sensor("sensor bom","Kg",1,1,15)
+
+'''
     print("\nConsulta 1\n")
     clientes = Consultas_pre_feitas.consulta1()
     print("Nome Cliente\t\ttotal gasto")
@@ -37,10 +41,10 @@ if __name__ == '__main__':
     print("\nConsulta 2\n")
     #Consulta 2
     fornecedores = Consultas_pre_feitas.consulta2()
-    print("Nome fornecedores\t\tdescricao da obra prima\t\tmedia dos valores")
+    print("Nome fornecedores\t\tmedia dos valores")
     print("----------------------------------------------------------------------------------")
     for fornecedor in fornecedores:
-        print("%s\t\t\t%s\t\t\t%.2f"%(fornecedor[1],fornecedor[3],fornecedor[4]))
+        print("%s\t\t\t%.2f"%(fornecedor[1],fornecedor[2]))
 
     print("\nConsulta 3\n")
     #Consulta 3
@@ -50,3 +54,5 @@ if __name__ == '__main__':
     for sensor in sensores:
         print("%s\t\t\t%d\t\t\t%s"%(sensor[1],sensor[5],sensor[6]))
 
+'''
+    

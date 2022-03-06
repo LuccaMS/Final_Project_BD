@@ -2,8 +2,8 @@
 import Conexao
 import mysql.connector
 
-def create_produto(desricao,valor,fk_Tipo_Produto_id_tipo_produto):
-    create_produto_query = f"INSERT INTO produto (descricao,valor,fk_Tipo_Produto_id_tipo_produto) VALUES ('{desricao}','{valor}','{fk_Tipo_Produto_id_tipo_produto}')"
+def create_produto(descricao,valor,fk_Tipo_Produto_id_tipo_produto):
+    create_produto_query = f"INSERT INTO produto (descricao_produto,valor_produto,fk_Tipo_Produto_id_tipo_produto) VALUES ('{descricao}','{valor}','{fk_Tipo_Produto_id_tipo_produto}')"
     try:
         Conexao.cr.execute(create_produto_query)
         Conexao.cnx.commit()
@@ -24,8 +24,8 @@ def create_cliente(cnpj,nome):
         Conexao.cnx.rollback()
 
     
-def create_nota_fiscal(desconto,juros,valor,qtd,fk_Cliente_id_cliente,fk_Obra_Prima_id_obra_prima):
-    create_nota_fiscal_query = f"INSERT INTO nota_fiscal (desconto,juros,valor,qtd,fk_Cliente_id_cliente,fk_Obra_Prima_id_obra_prima) VALUES ('{desconto}','{juros}','{valor}','{qtd}','{fk_Cliente_id_cliente}','{fk_Obra_Prima_id_obra_prima}')"
+def create_nota_fiscal(desconto,valor,qtd,fk_Cliente_id_cliente,fk_Obra_Prima_id_obra_prima,dt_pgt_transacao, data):
+    create_nota_fiscal_query = f"INSERT INTO nota_fiscal (desconto,valor_nota_fiscal,qtd,fk_Cliente_id_cliente,fk_Obra_Prima_id_obra_prima,dt_pgt_transacao,data) VALUES ('{desconto}','{valor}','{qtd}','{fk_Cliente_id_cliente}','{fk_Obra_Prima_id_obra_prima}','{dt_pgt_transacao}','{data}')"
     try:
         Conexao.cr.execute(create_nota_fiscal_query)
         Conexao.cnx.commit()
@@ -34,8 +34,8 @@ def create_nota_fiscal(desconto,juros,valor,qtd,fk_Cliente_id_cliente,fk_Obra_Pr
         print(err)
         Conexao.cnx.rollback()
     
-def obra_prima(tipo_obra_prima,descricao,valor):
-    create_obra_prima_query = f"INSERT INTO obra_prima (tipo_obra_prima,descricao,valor) VALUES ('{tipo_obra_prima}','{descricao}','{valor}')"
+def obra_prima(descricao_obra_prima,valor):
+    create_obra_prima_query = f"INSERT INTO obra_prima (descricao_obra_prima,valor) VALUES ('{descricao_obra_prima}','{valor}')"
     try:
         Conexao.cr.execute(create_obra_prima_query)
         Conexao.cnx.commit()
@@ -54,8 +54,8 @@ def create_fornecedor(cnpj_fornecedor,nome_fornecedor,endereco_fornecedor):
         print(err)
         Conexao.cnx.rollback()
 
-def create_tipo_produto(descricao):
-    create_tipo_produto_query = f"INSERT INTO tipo_produto (descricao) VALUES ('{descricao}')"
+def create_tipo_produto(descricao_tipo_produto):
+    create_tipo_produto_query = f"INSERT INTO tipo_produto (descricao_tipo_produto) VALUES ('{descricao_tipo_produto}')"
     try:
         Conexao.cr.execute(create_tipo_produto_query)
         Conexao.cnx.commit()
@@ -64,8 +64,8 @@ def create_tipo_produto(descricao):
         print(err)
         Conexao.cnx.rollback()
 
-def create_tipo_sensor(descricao):
-    create_tipo_sensor = f"INSERT INTO tipo_sensor (descricao) VALUES ('{descricao}')"
+def create_tipo_sensor(descricao_tipo_sensor):
+    create_tipo_sensor = f"INSERT INTO tipo_sensor (descricao_tipo_sensor) VALUES ('{descricao_tipo_sensor}')"
     try:
         Conexao.cr.execute(create_tipo_sensor)
         Conexao.cnx.commit()
@@ -75,8 +75,8 @@ def create_tipo_sensor(descricao):
         Conexao.cnx.rollback()
     
 
-def create_maquina(descricao,fk_Produto_id_produto):
-    create_maquina_query = f"INSERT INTO maquina (descricao,fk_Produto_id_produto) VALUES ('{descricao}','{fk_Produto_id_produto}')"
+def create_maquina(descricao_maquina,fk_Produto_id_produto):
+    create_maquina_query = f"INSERT INTO maquina (descricao_maquina,fk_Produto_id_produto) VALUES ('{descricao_maquina}','{fk_Produto_id_produto}')"
     try:
         Conexao.cr.execute(create_maquina_query)
         Conexao.cnx.commit()
@@ -107,8 +107,8 @@ def create_funcionario(nome,cpf):
         print(err)
         Conexao.cnx.rollback()
 
-def create_sensor(descricao,un_medida,fk_Tipo_Sensor_id_tipo_sensor,fk_Maquina_id_maquina):
-    create_sensor_query = f"INSERT INTO sensor (descricao,un_medida,fk_Tipo_Sensor_id_tipo_sensor,fk_Maquina_id_maquina) VALUES ('{descricao}','{un_medida}','{fk_Tipo_Sensor_id_tipo_sensor}','{fk_Maquina_id_maquina}')"
+def create_sensor(descricao_sensor,un_medida,fk_Tipo_Sensor_id_tipo_sensor,fk_Maquina_id_maquina,medida):
+    create_sensor_query = f"INSERT INTO sensor (descricao_sensor,un_medida,fk_Tipo_Sensor_id_tipo_sensor,fk_Maquina_id_maquina,medida) VALUES ('{descricao_sensor}','{un_medida}','{fk_Tipo_Sensor_id_tipo_sensor}','{fk_Maquina_id_maquina}','{medida}')"
     try:
         Conexao.cr.execute(create_sensor_query)
         Conexao.cnx.commit()

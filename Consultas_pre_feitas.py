@@ -13,18 +13,20 @@ def consulta3():
     consulta3_query = """SELECT id_maquina, data,descricao_maquina, id_sensor,descricao_sensor, min(medida) as minimo, un_medida
                         FROM MAQUINA INNER JOIN Escala ON escala.fk_Maquina_id_maquina = maquina.id_maquina
                         INNER JOIN  Sensor ON maquina.id_maquina = sensor.fk_Maquina_id_maquina
-                        GROUP BY id_sensor"""
+                        WHERE data BETWEEN '2022-01-01 08:30:01'  and '2022-03-01 08:30:01'
+                        GROUP BY un_medida"""
     
     Conexao.cr.execute(consulta3_query)
     maquinas = Conexao.cr.fetchall()
     return maquinas
 
 def consulta2():
-    consulta2_query = """SELECT id_fornecedor, nome_fornecedor, id_obra_prima, descricao_obra_prima,avg(valor) as media
-                        FROM fornecedor 
-                        INNER JOIN Fornece ON fornecedor.id_fornecedor = fornece.fk_Fornecedor_id_fornecedor
-                        INNER JOIN Obra_Prima ON obra_prima.id_obra_prima = fornece.fk_Obra_Prima_id_obra_prima
-                        GROUP BY nome_fornecedor"""
+    consulta2_query = """SELECT id_fornecedor, nome_fornecedor,avg(valor) as media
+                            FROM fornecedor 
+                            INNER JOIN Fornece ON fornecedor.id_fornecedor = fornece.fk_Fornecedor_id_fornecedor
+                            INNER JOIN Obra_Prima ON obra_prima.id_obra_prima = fornece.fk_Obra_Prima_id_obra_prima
+                            GROUP BY nome_fornecedor
+                       """
 
     Conexao.cr.execute(consulta2_query)
     fornecedores = Conexao.cr.fetchall()
