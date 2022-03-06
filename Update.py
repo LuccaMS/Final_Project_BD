@@ -2,7 +2,7 @@ import Conexao
 import mysql.connector
 
 def update_produto(id,valor):
-    update_query = "update produto set valor = {valor} where id_produto = {id}"
+    update_query = "update produto set valor_produto = {valor} where id_produto = {id}"
     
 
     try: 
